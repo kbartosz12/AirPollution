@@ -26,16 +26,16 @@ $data['N02'] = $NO2->find(".right",0);
 $data['SO2'] = $SO2->find(".right",0);
 $data['CO'] = $CO->find(".right",0);
 
-
+$data = array();
 
 
 $data = array(
-                'quality' => $this->input->post('jakosc_powietrza'),
-                'PM10' => $this->input->post('pm10'),
-                'PM25' => $this->input->post('pm25'),
-                'N02' => $this->input->post('dwutlenek_azotu'),
-                'S02' => $this->input->post('dwutlenek_siarki'),
-                'CO' => $this->input->post('tlenek_wegla'),
+                'quality' => ('jakosc_powietrza'),
+                'PM10' => ('pm10'),
+                'PM25' => ('pm25'),
+                'N02' => ('dwutlenek_azotu'),
+                'S02' => ('dwutlenek_siarki'),
+                'CO' => ('tlenek_wegla'),
             );
 
             $this->krasinskiego_m->insert($data);
