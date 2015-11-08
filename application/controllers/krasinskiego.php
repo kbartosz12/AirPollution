@@ -24,18 +24,18 @@ class Krasinskiego extends CI_Controller {
      $NO2 =  file_get_html('http://www.malopolska.pl/Obywatel/EKO-prognozaMalopolski/Malopolska/Strony/Dwutlenekazotu.aspx');
      $SO2 =  file_get_html('http://www.malopolska.pl/Obywatel/EKO-prognozaMalopolski/Malopolska/Strony/Dwutleneksiarki.aspx');
      $CO =  file_get_html('http://www.malopolska.pl/Obywatel/EKO-prognozaMalopolski/Malopolska/Strony/tlenekwegla.aspx');
-     //echo $data['quality'] = $quality->find(".right",0);
-     /*echo $data['PM10'] = $PM10->find(".right",0);
-     echo $data['PM25'] = $PM25->find(".right",0);
-     echo $data['NO2'] = $NO2->find(".right",0);
-     echo $data['SO2'] = $SO2->find(".right",0);
-     echo $data['CO'] = $CO->find(".right",0);*/
+     echo $data['quality'] = trim($quality->find(".right",0)->plaintext);
+     echo $data['PM10'] = trim($PM10->find(".right",0)->plaintext);
+     echo $data['PM25'] = trim($PM25->find(".right",0)->plaintext);
+     echo $data['NO2'] = trim($NO2->find(".right",0)->plaintext);
+     echo $data['SO2'] = trim($SO2->find(".right",0)->plaintext);
+     echo $data['CO'] = trim($CO->find(".right",0)->plaintext);
 
-     echo  $data = $quality->find(".right",0);
+     //$data = trim($quality->find(".right",0)->plaintext);
      
-     var_dump($data);
+     //var_dump($data);
      
-    
+     //print_r($data);
 
 /*
     $data = array(
