@@ -1,89 +1,200 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
 
-	<style type="text/css">
-
-	::selection { background-color: #E13300; color: white; }
-	::-moz-selection { background-color: #E13300; color: white; }
-
-	body {
-		background-color: #fff;
-		margin: 40px;
-		font: 13px/20px normal Helvetica, Arial, sans-serif;
-		color: #4F5155;
-	}
-
-	a {
-		color: #003399;
-		background-color: transparent;
-		font-weight: normal;
-	}
-
-	h1 {
-		color: #444;
-		background-color: transparent;
-		border-bottom: 1px solid #D0D0D0;
-		font-size: 19px;
-		font-weight: normal;
-		margin: 0 0 14px 0;
-		padding: 14px 15px 10px 15px;
-	}
-
-	code {
-		font-family: Consolas, Monaco, Courier New, Courier, monospace;
-		font-size: 12px;
-		background-color: #f9f9f9;
-		border: 1px solid #D0D0D0;
-		color: #002166;
-		display: block;
-		margin: 14px 0 14px 0;
-		padding: 12px 10px 12px 10px;
-	}
-
-	#body {
-		margin: 0 15px 0 15px;
-	}
-
-	p.footer {
-		text-align: right;
-		font-size: 11px;
-		border-top: 1px solid #D0D0D0;
-		line-height: 32px;
-		padding: 0 10px 0 10px;
-		margin: 20px 0 0 0;
-	}
-
-	#container {
-		margin: 10px;
-		border: 1px solid #D0D0D0;
-		box-shadow: 0 0 8px #D0D0D0;
-	}
-	</style>
-</head>
-<body>
-
-<div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
-
-	<div id="body">
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-		<p>If you would like to edit this page you'll find it located at:</p>
-		<code>application/views/welcome_message.php</code>
-
-		<p>The corresponding controller for this page is found at:</p>
-		<code>application/controllers/Welcome.php</code>
-
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
-	</div>
-
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
+    <h2>Aleja Krasińskiego</h2>
+    <div>
+        
+        <table class="table-bordered" data-toggle="table">
+              <thead>
+            <tr>
+                <th >Jakość powietrza</th>
+                <th>Pył PM10</th>
+                <th>Pył PM2.5</th>
+                <th>Dwutlenek azotu</th>
+                <th>Dwutlenek siarki</th>
+                <th>Tlenek węgla</th>
+                <th>Aktualizacja</th>
+            </tr>
+            <?php if (!empty($dane)): ?>
+                <?php foreach ($dane as $krasinskiego): ?>
+            <?php endforeach; ?>
+                    <tr>
+                        
+                        <td>
+                            <?php $kolor = $krasinskiego->quality;
+                            
+ 
+                            if($kolor == "bardzo zła"){
+                            echo "<font color='#800000'>bardzo zła</font>";
+                            
+                            }
+                            
+                                                                      
+                            elseif ($kolor == "zła") {
+                                echo "<font color='#FF0000'>zła</font>";
+                            }
+                            elseif ($kolor == "dostateczna") {
+                                echo "<font color='#FF9900'>dostateczna</font>";
+                            }
+                            elseif ($kolor =="dobra") {
+                                echo "<font color='#33CC33'>dobra</font>";
+                            }
+                             elseif ($kolor == "bardzo dobra") {
+                                echo "<font color='#ADEBAD'>bardzo dobra</font>";
+                            }
+                            
+                            else {
+                                     echo $kolor;
+                            }
+                            ?>
+                        </td>
+                        <td>
+                             <?php echo $krasinskiego->PM10; ?>
+                        </td>
+                        <td>
+                             <?php echo $krasinskiego->PM25; ?>
+                        </td>
+                        <td>
+                            <?php echo $krasinskiego->NO2; ?>
+                        </td>
+                        <td>
+                            <?php echo $krasinskiego->SO2; ?>
+                        </td>
+                        <td>
+                            <?php echo $krasinskiego->CO; ?>
+                        </td>
+                        <td>
+                            <?php echo $krasinskiego->date; ?>
+                        </td>
+                    </tr>
+                <?php echo $krasinskiego->krasinskiego_id; ?>
+                    <?php else: ?>
+                    <tr>
+                        <td colspan="3">brak danych</td>
+                    </tr>
+            <?php endif; ?>
+                    
+                    <?php if (!empty($dane_bujaka)): ?>
+                <?php foreach ($dane_bujaka as $bujaka): ?>
+            <?php endforeach; ?>
+                    <tr>
+                        
+                        <td>
+                            <?php $kolor_b = $bujaka->quality;
+                            
+ 
+                            if($kolor == "bardzo zła"){
+                            echo "<font color='#800000'>bardzo zła</font>";
+                            
+                            }
+                            
+                                                                      
+                            elseif ($kolor == "zła") {
+                                echo "<font color='#FF0000'>zła</font>";
+                            }
+                            elseif ($kolor == "dostateczna") {
+                                echo "<font color='#FF9900'>dostateczna</font>";
+                            }
+                            elseif ($kolor =="dobra") {
+                                echo "<font color='#33CC33'>dobra</font>";
+                            }
+                             elseif ($kolor == "bardzo dobra") {
+                                echo "<font color='#ADEBAD'>bardzo dobra</font>";
+                            }
+                            
+                            else {
+                                     echo $kolor_b;
+                            }
+                            ?>
+                        </td>
+                        <td>
+                             <?php echo $bujaka->PM10; ?>
+                        </td>
+                        <td>
+                             <?php echo $bujaka->PM25; ?>
+                        </td>
+                        <td>
+                            <?php echo $bujaka->NO2; ?>
+                        </td>
+                        <td>
+                            <?php echo $bujaka->SO2; ?>
+                        </td>
+                        <td>
+                            <?php echo $bujaka->CO; ?>
+                        </td>
+                        <td>
+                            <?php echo $bujaka->date; ?>
+                        </td>
+                    </tr>
+                <?php //echo $bujaka->bujaka_id; ?>
+                    <?php else: ?>
+                    <tr>
+                        <td colspan="3">brak danych</td>
+                    </tr>
+            <?php endif; ?>
+                      </thead>
+        </table>
+    </div>
 </div>
 
-</body>
-</html>
+
+<script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?sensor=false">
+        </script>
+        <script type="text/javascript">
+        var map;
+        var lat=50.0456303;
+        var lng=19.9979558;
+        var zoom=11;
+        var info = new google.maps.InfoWindow();
+         
+    function initialize()
+    {
+                var myLatlng = new google.maps.LatLng(lat,lng);
+                var myOptions = {
+                    zoom: zoom,
+                    center: myLatlng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                }
+                var map = new google.maps.Map(document.getElementById("moja-mapa"), myOptions);
+     
+                var markers = [
+                        ['Czujnik Aleja Krasińskiego', 50.0572, 19.9262,'<b>Kraków - Aleja Krasińskiego</B> <br> </br> <?php echo "Jakość powietrza jest <b>".$kolor."</b>";?> \n\
+                        <br><strong><a href="/AirPollution/index.php/krasinskiego"><font color=#1F7A1F>Więcej informacji...</font></a></strong></br> '],
+                        ['Bujaka', 50.0112, 19.9506,'<b>Kraków - ulica Bujaka</B> 1 content'],
+                        ['Bulwarowa', 50.0655, 20.1175,'<b>Kraków - ulica Bulwarowa</B> 1 content']
+                ];
+ 
+             for (var i = 0; i < markers.length; i++)
+             {
+                    marker=addMarker(i);
+                }
+ 
+            google.maps.event.trigger(addMarker(2) ,'click');
+                 
+            function addMarker(i)
+            {
+                var draftMarker = markers[i];
+                var myLatLng = new google.maps.LatLng(draftMarker[1], draftMarker[2]);
+                var marker = new google.maps.Marker({
+                         position: myLatLng,
+                         map: map,
+                         title: draftMarker[0]
+                 });
+                             
+                google.maps.event.addListener(marker,"click",function()
+                {
+                    info.setContent(draftMarker[3]);
+                    info.open(map,marker);
+                });
+                return marker;
+            }
+        }
+ 
+        </script>
+    </head>
+    <body onLoad="initialize()">
+ <center>
+    <div id="moja-mapa" style="width: 1000px; height: 500px;">
+        <!-- Miejsce wyświetlenia mapy -->
+    </div>
+</center>
+    </body>      
